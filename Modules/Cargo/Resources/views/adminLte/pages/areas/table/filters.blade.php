@@ -10,7 +10,8 @@
                 class="form-control  @error('state_id') is-invalid @enderror"
                 name="state_id"
                 data-control="select2"
-                data-placeholder="{{ __('cargo::view.choose_region') }}"
+                placeholder: "{{ __('Choose State') }}",
+                {{-- data-placeholder="{{ __('cargo::view.choose_region') }}" --}}
                 data-allow-clear="true"
             >
                 <option></option>

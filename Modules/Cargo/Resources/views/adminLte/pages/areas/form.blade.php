@@ -44,12 +44,14 @@
     <div class="col-md-12 fv-row form-group">
         <!--begin::Label-->
         <label class="col-form-label required fw-bold fs-6">{{ __('cargo::view.from_region') }}</label>
+        <label class="col-form-label required fw-bold fs-6">{{ __('From State') }}</label>
         <!--end::Label-->
         <select
             class="form-control  @error('state_id') is-invalid @enderror"
             name="state_id"
             data-control="select2"
-            data-placeholder="{{ __('cargo::view.choose_region') }}"
+            placeholder: "{{ __('Choose State') }}",
+            {{-- data-placeholder="{{ __('cargo::view.choose_region') }}" --}}
             data-allow-clear="true"
         >
             <option></option>

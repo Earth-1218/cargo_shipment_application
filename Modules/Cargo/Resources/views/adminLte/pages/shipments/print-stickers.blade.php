@@ -63,9 +63,9 @@ $cash_payment = 'cash_payment';
                                                                     <td style="text-align: center; padding-top: 10px;" colspan="1">
                                                                         <span style="font-size:16px; font-weight:bold; padding:10px;">
                                                                         @if($shipment->payment_type == Modules\Cargo\Entities\Shipment::POSTPAID && $shipment->payment_method_id != $cash_payment )
-                                                                            {{ __('cargo::view.POSTPAID') }}: 
+                                                                            {{ __('To Pay') }}: 
                                                                         @elseif($shipment->payment_type == Modules\Cargo\Entities\Shipment::PREPAID)
-                                                                            {{ __('cargo::view.PREPAID') }}:
+                                                                            {{ __('Paid') }}:
                                                                         @elseif($shipment->payment_type == Modules\Cargo\Entities\Shipment::POSTPAID && $shipment->payment_method_id == $cash_payment )
                                                                             {{ __('cargo::view.cod') }}:
                                                                         @endif
@@ -114,7 +114,7 @@ $cash_payment = 'cash_payment';
                                                                     <td colspan="2">
                                                                         <span style="font-size:16px; font-weight:bold;">
                                                                         <br />
-                                                                        @if($shipment->order_id != null) {{ __('cargo::view.order_id') }}: {{$shipment->order_id}} / @endif {{$shipment->code}} / {{$shipment->total_weight}} {{ __('cargo::view.KG') }} / @if(strpos($shipment->shipping_date, '/' ))
+                                                                        @if($shipment->order_id != null) {{ __('Invoice No') }}: {{$shipment->order_id}} / @endif {{$shipment->code}} / {{$shipment->total_weight}} {{ __('cargo::view.KG') }} / @if(strpos($shipment->shipping_date, '/' ))
                             {{ Carbon\Carbon::createFromFormat('d/m/Y', $shipment->shipping_date)->format('d-m-Y') }}
                         @else
                             {{\Carbon\Carbon::parse($shipment->shipping_date)->format('d-m-Y')}}
@@ -221,9 +221,9 @@ $cash_payment = 'cash_payment';
                                                                     <td style="text-align: center; padding-top: 10px;" colspan="1">
                                                                         <span style="font-size:16px; font-weight:bold; padding:10px;">
                                                                         @if($shipment->payment_type == Modules\Cargo\Entities\Shipment::POSTPAID && $shipment->payment_method_id != $cash_payment )
-                                                                            {{ __('cargo::view.POSTPAID') }}: 
+                                                                            {{ __('To Pay') }}: 
                                                                         @elseif($shipment->payment_type == Modules\Cargo\Entities\Shipment::PREPAID)
-                                                                            {{ __('cargo::view.PREPAID') }}:
+                                                                            {{ __('Paid') }}:
                                                                         @elseif($shipment->payment_type == Modules\Cargo\Entities\Shipment::POSTPAID && $shipment->payment_method_id == $cash_payment )
                                                                             {{ __('cargo::view.cod') }}:
                                                                         @endif
@@ -272,7 +272,7 @@ $cash_payment = 'cash_payment';
                                                                     <td colspan="2">
                                                                         <span style="font-size:16px; font-weight:bold;">
                                                                         <br />
-                                                                        @if($shipment->order_id != null) {{ __('cargo::view.order_id') }}: {{$shipment->order_id}} / @endif {{$shipment->code}} / {{$shipment->total_weight}} {{ __('cargo::view.KG') }} / @if(strpos($shipment->shipping_date, '/' ))
+                                                                        @if($shipment->order_id != null) {{ __('Invoice No') }}: {{$shipment->order_id}} / @endif {{$shipment->code}} / {{$shipment->total_weight}} {{ __('cargo::view.KG') }} / @if(strpos($shipment->shipping_date, '/' ))
                             {{ Carbon\Carbon::createFromFormat('d/m/Y', $shipment->shipping_date)->format('d-m-Y') }}
                         @else
                             {{\Carbon\Carbon::parse($shipment->shipping_date)->format('d-m-Y')}}
