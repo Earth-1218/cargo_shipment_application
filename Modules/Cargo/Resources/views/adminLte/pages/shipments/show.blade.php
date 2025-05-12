@@ -26,7 +26,7 @@
                             <span class="d-flex flex-column align-items-md-start">
                                 <h1 class="mb-10 display-4 font-weight-boldest">{{ __('cargo::view.shipment') }}: {{$shipment->code}}</h1>
                                 @if($shipment->order_id != null)
-                                    <span><span class="font-weight-bolder opacity-70">{{ __('cargo::view.order_id') }}:</span> {{$shipment->order_id}}</span>
+                                    <span><span class="font-weight-bolder opacity-70">{{ __('Invoice No') }}:</span> {{$shipment->order_id}}</span>
                                 @endif
                             </span>
                         </div>
@@ -140,11 +140,13 @@
                                 <span class="text-muted font-weight-bolder font-size-lg">@if(isset($shipment->to_country)){{$shipment->to_country->name ?? 'Null'}} @endif </span>
                         </div>
                         <div class="d-flex flex-column flex-root">
-                                <span class="mb-4 text-dark font-weight-bold">{{ __('cargo::view.from_region') }}</span>
+                                {{-- <span class="mb-4 text-dark font-weight-bold">{{ __('cargo::view.from_region') }}</span> --}}
+                                <span class="mb-4 text-dark font-weight-bold">{{ __('From State') }}</span>
                                 <span class="text-muted font-weight-bolder font-size-lg">@if(isset($shipment->from_state)){{$shipment->from_state->name ?? 'Null'}} @endif </span>
                         </div>
                         <div class="d-flex flex-column flex-root">
-                                <span class="mb-4 text-dark font-weight-bold">{{ __('cargo::view.to_region') }}</span>
+                                {{-- <span class="mb-4 text-dark font-weight-bold">{{ __('cargo::view.to_region') }}</span> --}}
+                                <span class="mb-4 text-dark font-weight-bold">{{ __('To State') }}</span>
                                 <span class="text-muted font-weight-bolder font-size-lg">@if(isset($shipment->to_state)){{$shipment->to_state->name ?? 'Null'}} @endif </span>
                         </div>
 

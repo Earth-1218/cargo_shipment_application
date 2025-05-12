@@ -76,7 +76,8 @@ class CountryController extends Controller
                 'path' => fr_route('countries.index')
             ],
             [
-                'name' => __('cargo::view.covered_states'),
+                // 'name' => __('cargo::view.covered_states'),
+                'name' => __('Covered States'),
             ],
         ]);
         $items = State::where('country_id', $country_id)->get();

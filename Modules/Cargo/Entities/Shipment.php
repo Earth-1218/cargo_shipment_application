@@ -311,9 +311,9 @@ class Shipment extends Model implements HasMedia
     }
     public function getPaymentType(){
         if ($this->payment_type == Self::POSTPAID) {
-            return __('cargo::view.postpaid');
+            return __('To Pay');
         } elseif ($this->payment_type == Self::PREPAID) {
-            return __('cargo::view.prepaid');
+            return __('Paid');
         }
     }
     public function pay(){

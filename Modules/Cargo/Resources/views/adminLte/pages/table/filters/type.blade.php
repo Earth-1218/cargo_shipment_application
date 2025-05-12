@@ -9,9 +9,9 @@
                 data-placeholder="{{ __('cargo::view.type') }}" data-allow-clear="true"
                 name="{{ $table_id }}_payment_type">
                 <option></option>
-                <option @if (Modules\Cargo\Entities\ShipmentSetting::getVal('def_payment_type') == '1') selected @endif value="1">{{ __('cargo::view.postpaid') }}
+                <option @if (Modules\Cargo\Entities\ShipmentSetting::getVal('def_payment_type') == '1') selected @endif value="1">{{ __('To Pay') }}
                 </option>
-                <option @if (Modules\Cargo\Entities\ShipmentSetting::getVal('def_payment_type') == '2') selected @endif value="2">{{ __('cargo::view.prepaid') }}
+                <option @if (Modules\Cargo\Entities\ShipmentSetting::getVal('def_payment_type') == '2') selected @endif value="2">{{ __('Paid') }}
                 </option>
             </select>
             <!--end::Option-->

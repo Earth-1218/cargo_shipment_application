@@ -299,7 +299,8 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="col-form-label fw-bold fs-6 required">{{ __('cargo::view.region') }}</label>
+                            {{-- <label class="col-form-label fw-bold fs-6 required">{{ __('cargo::view.region') }}</label> --}}
+                            <label class="col-form-label fw-bold fs-6 required">{{ __('State') }}</label>
                             <select @error('state_id') is-invalid @enderror id="change-state-client-address" name="state_id" class="form-control select-state">
                                 <option value=""></option>
 
@@ -314,7 +315,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="col-form-label fw-bold fs-6 required">{{ __('cargo::view.area') }}</label>
+                    {{-- <label class="col-form-label fw-bold fs-6 required">{{ __('cargo::view.area') }}</label> --}}
+                    <label class="col-form-label fw-bold fs-6 required">{{ __('City') }}</label>
                     <select @error('area_id') is-invalid @enderror name="area_id" style="display: block !important;" class="form-control select-area">
                         <option value=""></option>
 
@@ -498,7 +500,8 @@
         <div class="row mb-5">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label class="col-form-label fw-bold fs-6 required">{{ __('cargo::view.from_region') }}</label>
+                    {{-- <label class="col-form-label fw-bold fs-6 required">{{ __('cargo::view.from_region') }}</label> --}}
+                    <label class="col-form-label fw-bold fs-6 required">{{ __('From State') }}</label>
                     <select id="change-state-from" name="Shipment[from_state_id]" class="form-control select-state @error('Shipment.from_state_id') is-invalid @enderror">
                         <option value=""></option>
                         @if($typeForm == 'edit')
@@ -521,7 +524,8 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <label class="col-form-label fw-bold fs-6 required">{{ __('cargo::view.to_region') }}</label>
+                    {{-- <label class="col-form-label fw-bold fs-6 required">{{ __('cargo::view.to_region') }}</label> --}}
+                    <label class="col-form-label fw-bold fs-6 required">{{ __('To State') }}</label>
                     <select id="change-state-to" name="Shipment[to_state_id]" class="form-control select-state @error('Shipment.to_state_id') is-invalid @enderror">
                         <option value=""></option>
                         @if($typeForm == 'edit')
@@ -608,13 +612,13 @@
                             @if($typeForm == 'edit')
                                 {{ $model->payment_type == 1 ? 'selected' : '' }}
                             @endif
-                        >{{ __('cargo::view.postpaid') }}</option>
+                        >{{ __('To Pay') }}</option>
                         <option @if(Modules\Cargo\Entities\ShipmentSetting::getVal('def_payment_type')=='2' ) selected @endif value="2"
                             {{ old('Shipment.payment_type') == 2 ? 'selected' : '' }}
                             @if($typeForm == 'edit')
                                 {{ $model->payment_type == 2 ? 'selected' : '' }}
                             @endif
-                        >{{ __('cargo::view.prepaid') }}</option>
+                        >{{ __('Paid') }}</option>
                     </select>
 
                 </div>
@@ -653,8 +657,8 @@
         <div class="row mb-4">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label class="col-form-label fw-bold fs-6">{{ __('cargo::view.order_id') }}</label>
-                    <input type="text" placeholder="{{ __('cargo::view.order_id') }}" name="Shipment[order_id]" class="form-control @error('Shipment.order_id') is-invalid @enderror" value="{{ old('Shipment.order_id', isset($model) ? $model->order_id : '' ) }}" />
+                    <label class="col-form-label fw-bold fs-6">{{ __('Invoice No') }}</label>
+                    <input type="text" placeholder="{{ __('Invoice No') }}" name="Shipment[order_id]" class="form-control @error('Shipment.order_id') is-invalid @enderror" value="{{ old('Shipment.order_id', isset($model) ? $model->order_id : '' ) }}" />
                 </div>
                 @error('Shipment.order_id')
                     <div class="invalid-feedback">
@@ -1440,19 +1444,22 @@
         @endif
 
         $('.select-state').select2({
-            placeholder: "{{ __('cargo::view.choose_region') }}",
+            // placeholder: "{{ __('cargo::view.choose_region') }}",
+            placeholder: "{{ __('Choose State') }}",
             width: '100%'
         })
         @if(auth()->user()->can('add-covered-regions') || $user_role == $admin)
             .on('select2:open', () => {
                 $(".select2-results:not(:has(a))").append(`<li style='list-style: none; padding: 10px;'><a style="width: 100%" href="{{route('countries.index')}}?redirect=shipments.create"
-                    class="btn btn-primary" >{{ __('cargo::view.manage')}} {{__('cargo::view.covered_regions') }}</a>
+                    class="btn btn-primary" >{{ __('cargo::view.manage')}} {{__('Covered States') }}</a>
                     </li>`);
             });
+            // class="btn btn-primary" >{{ __('cargo::view.manage')}} {{__('cargo::view.covered_regions') }}</a>
         @endif
 
         $('.select-area').select2({
-            placeholder: "{{ __('cargo::view.choose_area') }}",
+            // placeholder: "{{ __('cargo::view.choose_area') }}",
+            placeholder: "{{ __('Choose City') }}",
             width: '100%'
         })
         @if(auth()->user()->can('manage-areas') || $user_role == $admin)

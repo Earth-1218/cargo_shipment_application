@@ -42,7 +42,8 @@ $countries = Modules\Cargo\Entities\Country::where('covered', 1)->get();
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="col-form-label fw-bold fs-6 required">{{ __('cargo::view.region') }}</label>
+                            {{-- <label class="col-form-label fw-bold fs-6 required">{{ __('cargo::view.region') }}</label> --}}
+                            <label class="col-form-label fw-bold fs-6 required">{{ __('State') }}</label>
                             <select name="state_id"
                                 class="change-state-client-address form-control select-state @error('address.*.state_id') is-invalid @enderror">
                                 <option value=""></option>
@@ -57,7 +58,8 @@ $countries = Modules\Cargo\Entities\Country::where('covered', 1)->get();
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label class="col-form-label fw-bold fs-6 required">{{ __('cargo::view.area') }}</label>
+                            {{-- <label class="col-form-label fw-bold fs-6 required">{{ __('cargo::view.area') }}</label> --}}
+                            <label class="col-form-label fw-bold fs-6 required">{{ __('City') }}</label>
                             <select name="area_id" style="display: block !important;"
                                 class="change-area-client-address form-control select-area @error('address.*.area_id') is-invalid @enderror">
                                 <option value=""></option>
@@ -132,8 +134,8 @@ $countries = Modules\Cargo\Entities\Country::where('covered', 1)->get();
                     <input type="hidden" name="id" value="{{ $model->id }}">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label
-                                class="col-form-label fw-bold fs-6 required">{{ __('cargo::view.region') }}</label>
+                            {{-- <label class="col-form-label fw-bold fs-6 required">{{ __('cargo::view.region') }}</label> --}}
+                            <label class="col-form-label fw-bold fs-6 required">{{ __('State') }}</label>
                             <select name="state_id"
                                 class="change-state-client-address form-control select-state @error('state_id') is-invalid @enderror">
                                 <option value=""></option>
@@ -157,7 +159,8 @@ $countries = Modules\Cargo\Entities\Country::where('covered', 1)->get();
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label class="col-form-label fw-bold fs-6 required">{{ __('cargo::view.area') }}</label>
+                            {{-- <label class="col-form-label fw-bold fs-6 required">{{ __('cargo::view.area') }}</label> --}}
+                            <label class="col-form-label fw-bold fs-6 required">{{ __('City') }}</label>
                             <select name="area_id" style="display: block !important;"
                                 class="change-area-client-address form-control select-area @error('area_id') is-invalid @enderror">
                                 <option value=""></option>
@@ -429,29 +432,33 @@ $countries = Modules\Cargo\Entities\Country::where('covered', 1)->get();
             @endif
 
             $('.select-state').select2({
-                placeholder: "{{ __('cargo::view.choose_region') }}",
+                placeholder: "{{ __('Choose State') }}",
+                // placeholder: "{{ __('cargo::view.choose_region') }}",
                 width: '100%'
             })
             @if (auth()->user()->can('add-covered-regions') || $user_role == $admin)
                 .on('select2:open', () => {
                 $(".select2-results:not(:has(a))").append(`<li style='list-style: none; padding: 10px;'><a style="width: 100%"
                         href="{{ route('countries.index') }}?redirect=shipments.create"
-                        class="btn btn-primary">{{ __('cargo::view.manage') }} {{ __('cargo::view.covered_regions') }}</a>
+                        class="btn btn-primary">Manage States</a>
                 </li>`);
                 });
+                // class="btn btn-primary">{{ __('cargo::view.manage') }} {{ __('cargo::view.covered_regions') }}</a>
             @endif
 
             $('.select-area').select2({
-                placeholder: "{{ __('cargo::view.choose_area') }}",
+                // placeholder: "{{ __('cargo::view.choose_area') }}",
+                placeholder: "{{ __('Choose City') }}",
                 width: '100%'
             })
             @if (auth()->user()->can('manage-areas') || $user_role == $admin)
                 .on('select2:open', () => {
                 $(".select2-results:not(:has(a))").append(`<li style='list-style: none; padding: 10px;'><a style="width: 100%"
                         href="{{ route('areas.index') }}?redirect=shipments.create"
-                        class="btn btn-primary">{{ __('cargo::view.manage') }} {{ __('cargo::view.areas') }}</a>
+                        class="btn btn-primary">Manage Cities</a>
                 </li>`);
                 });
+                // class="btn btn-primary">{{ __('cargo::view.manage') }} {{ __('cargo::view.areas') }}</a>
             @endif
         }
         selectPlaceholder();

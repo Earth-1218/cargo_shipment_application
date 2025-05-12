@@ -1,7 +1,8 @@
 <x-base-layout>
 
     <x-slot name="pageTitle">
-        {{ __('cargo::view.covered_states') }}
+        {{-- {{ __('cargo::view.covered_states') }} --}}
+        {{ __('Covered States') }}
     </x-slot>
 
 
@@ -11,7 +12,8 @@
         <div class="card-header" role="button">
             <!--begin::Card title-->
             <div class="card-title m-0">
-                <h3 class="fw-bolder m-0">{{ __('cargo::view.covered_states') }} - {{ $country->name }}</h3>
+                {{-- <h3 class="fw-bolder m-0">{{ __('cargo::view.covered_states') }} - {{ $country->name }}</h3> --}}
+                <h3 class="fw-bolder m-0">{{ __('Covered States') }} - {{ $country->name }}</h3>
             </div>
             <div class="card-title m-0">
                 <a href="{{route('create.state',['id'=>$country->id])}}" class="btn btn-primary m-1">Add New state </a>

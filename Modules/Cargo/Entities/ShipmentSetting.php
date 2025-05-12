@@ -266,8 +266,8 @@ class ShipmentSetting extends Model
                 'translatable'  =>  false,
                 'type'          =>  'select',
                 'options'       =>  array(
-                                        '1' =>  __('cargo::view.postpaid'),
-                                        '2' =>  __('cargo::view.prepaid'),
+                                        '1' =>  __('To Pay'),
+                                        '2' =>  __('Paid'),
                                     ),
                 'value'         =>  Self::getVal('def_payment_type'),
                 'required'      =>  true

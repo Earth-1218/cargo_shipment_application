@@ -52,7 +52,7 @@
     <!--begin::Input group-->
     <div class="col-lg-12 fv-row">
         <div class="input-group mb-4">
-            <input type="text" name="name" class="form-control form-control-lg @error('name') is-invalid @enderror" placeholder="{{ __('cargo::view.table.full_name') }}" value="{{ old('name', isset($model) ? $model->name : '') }}" />
+            <input type="text" name="name" class="form-control form-control-lg @error('name') is-invalid @enderror" placeholder="{{ __('cargo::view.table.full_name') }}" value="{{ old('name', isset($model) ? $model->name : '') }}"/>
             @error('name')
                 <div class="invalid-feedback">
                     {{ $message }}
@@ -264,7 +264,8 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="col-form-label fw-bold fs-6 required">{{ __('cargo::view.region') }}</label>
+                            {{-- <label class="col-form-label fw-bold fs-6 required">{{ __('cargo::view.region') }}</label> --}}
+                            <label class="col-form-label fw-bold fs-6 required">{{ __('State') }}</label>
                             <select @error('state_id') is-invalid @enderror name="state_id" class="change-state-client-address form-control select-state">
                                 <option value=""></option>
 
@@ -278,7 +279,8 @@
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label class="col-form-label fw-bold fs-6 required">{{ __('cargo::view.area') }}</label>
+                            {{-- <label class="col-form-label fw-bold fs-6 required">{{ __('cargo::view.area') }}</label> --}}
+                            <label class="col-form-label fw-bold fs-6 required">{{ __('City') }}</label>
                             <select @error('area_id') is-invalid @enderror name="area_id" style="display: block !important;" class="change-area-client-address form-control select-area">
                                 <option value=""></option>
 
@@ -355,7 +357,8 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label class="col-form-label fw-bold fs-6 required">{{ __('cargo::view.region') }}</label>
+                                    {{-- <label class="col-form-label fw-bold fs-6 required">{{ __('cargo::view.region') }}</label> --}}
+                                    <label class="col-form-label fw-bold fs-6 required">{{ __('State') }}</label>
                                     <select @error('state_id') is-invalid @enderror name="state_id" class="change-state-client-address form-control select-state">
                                         <option value=""></option>
                                         @foreach($states as $state)
@@ -376,7 +379,8 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label class="col-form-label fw-bold fs-6 required">{{ __('cargo::view.area') }}</label>
+                                    {{-- <label class="col-form-label fw-bold fs-6 required">{{ __('cargo::view.area') }}</label> --}}
+                                    <label class="col-form-label fw-bold fs-6 required">{{ __('City') }}</label>
                                     <select @error('area_id') is-invalid @enderror name="area_id" style="display: block !important;" class="change-area-client-address form-control select-area">
                                         <option value=""></option>
                                         @foreach($areas as $area)
@@ -445,7 +449,8 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label class="col-form-label fw-bold fs-6 required">{{ __('cargo::view.region') }}</label>
+                                    {{-- <label class="col-form-label fw-bold fs-6 required">{{ __('cargo::view.region') }}</label> --}}
+                                    <label class="col-form-label fw-bold fs-6 required">{{ __('State') }}</label>
                                     <select @error('state_id') is-invalid @enderror name="state_id" class="change-state-client-address form-control select-state">
                                         <option value=""></option>
 
@@ -459,7 +464,8 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label class="col-form-label fw-bold fs-6 required">{{ __('cargo::view.area') }}</label>
+                                    {{-- <label class="col-form-label fw-bold fs-6 required">{{ __('cargo::view.area') }}</label> --}}
+                                    <label class="col-form-label fw-bold fs-6 required">{{ __('City') }}</label>
                                     <select @error('area_id') is-invalid @enderror name="area_id" style="display: block !important;" class="change-area-client-address form-control select-area">
                                         <option value=""></option>
 
@@ -1125,7 +1131,8 @@
             @endif
 
             $('.select-state').select2({
-                placeholder: "{{ __('cargo::view.choose_region') }}",
+                placeholder: "{{ __('Choose State') }}",
+                // placeholder: "{{ __('cargo::view.choose_region') }}",
                 width: '100%'
             })
             @if(auth()->user()->can('add-covered-regions') || $user_role == $admin)
@@ -1137,7 +1144,8 @@
             @endif
 
             $('.select-area').select2({
-                placeholder: "{{ __('cargo::view.choose_area') }}",
+                // placeholder: "{{ __('cargo::view.choose_area') }}",
+                placeholder: "{{ __('Choose City') }}",
                 width: '100%'
             })
             @if(auth()->user()->can('manage-areas') || $user_role == $admin)
@@ -1169,7 +1177,8 @@
                 let iti = window.intlTelInput(input, {
                     separateDialCode: true,
                     utilsScript: window.static_asset_utils_file,
-                    initialCountry: "ng",
+                    initialCountry: "in",
+                    onlyCountries: ["in"],
                     preferredCountries: ["eg","ng","ke"],
                     autoPlaceholder: "aggressive"
                 });
@@ -1240,7 +1249,8 @@
                 let iti = window.intlTelInput(input, {
                     separateDialCode: true,
                     utilsScript: window.static_asset_utils_file,
-                    initialCountry: "ng",
+                    initialCountry: "in",
+                    onlyCountries: ["in"],
                     preferredCountries: ["eg","ng","ke"],
                     autoPlaceholder: "aggressive"
                 });

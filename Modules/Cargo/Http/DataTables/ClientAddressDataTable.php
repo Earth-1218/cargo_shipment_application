@@ -135,8 +135,10 @@ class ClientAddressDataTable extends DataTable
             Column::make('id')->title(__('cargo::view.table.#'))->width(50),
             Column::make('address')->title(__('cargo::view.address')),
             Column::make('country_id')->title(__('cargo::view.country')),
-            Column::make('state_id')->title(__('cargo::view.region')),
-            Column::make('area_id')->title(__('cargo::view.area')),
+            // Column::make('state_id')->title(__('cargo::view.region')),
+            Column::make('state_id')->title(__('State')),
+            // Column::make('area_id')->title(__('cargo::view.area')),
+            Column::make('area_id')->title(__('City')),
             Column::make('created_at')->title(__('view.created_at')),
             Column::computed('action')
                 ->title(__('view.action'))

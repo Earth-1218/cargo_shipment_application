@@ -575,13 +575,15 @@
                                             </div>
                                             <div class="row" style="display:flex;">
                                                 <div class="col-md-6 chbs-form-field">
-                                                    <label style="padding-left: 4px;">{{ __('cargo::view.from_region') }}:</label>
+                                                    {{-- <label style="padding-left: 4px;">{{ __('cargo::view.from_region') }}:</label> --}}
+                                                    <label style="padding-left: 4px;">{{ __('From State') }}:</label>
                                                     <select id="change-state-from" name="Shipment[from_state_id]" class="select-country">
                                                         <option>{{ __('cargo::view.select_country_first') }}</option>
                                                     </select>
                                                 </div>
                                                 <div class="col-md-6 chbs-form-field">
-                                                    <label style="padding-left: 4px;">{{ __('cargo::view.to_region') }}:</label>
+                                                    {{-- <label style="padding-left: 4px;">{{ __('cargo::view.to_region') }}:</label> --}}
+                                                    <label style="padding-left: 4px;">{{ __('To State') }}:</label>
                                                     <select id="change-state-to" name="Shipment[to_state_id]" class="select-country">
                                                         <option>{{ __('cargo::view.select_country_first') }}</option>
                                                     </select>
@@ -922,8 +924,8 @@
                                             <div class="chbs-form-field col-md-4">
                                                 <label>{{ __('cargo::view.payment_type') }}:</label>
                                                 <select class="kt-select2 payment-type" id="payment_type" name="Shipment[payment_type]">
-                                                    <option @if(Modules\Cargo\Entities\ShipmentSetting::getVal('def_payment_type')=='1' ) selected @endif value="1">{{ __('cargo::view.postpaid') }}</option>
-                                                    <option @if(Modules\Cargo\Entities\ShipmentSetting::getVal('def_payment_type')=='2' ) selected @endif value="2">{{ __('cargo::view.prepaid') }}</option>
+                                                    <option @if(Modules\Cargo\Entities\ShipmentSetting::getVal('def_payment_type')=='1' ) selected @endif value="1">{{ __('To Pay') }}</option>
+                                                    <option @if(Modules\Cargo\Entities\ShipmentSetting::getVal('def_payment_type')=='2' ) selected @endif value="2">{{ __('Paid') }}</option>
                                                 </select>
                                             </div>
 
@@ -942,8 +944,8 @@
                                             </div>
 
                                             <div class="chbs-form-field col-md-4">
-                                                <label>{{ __('cargo::view.order_id') }}:</label>
-                                                <input placeholder="{{ __('cargo::view.order_id') }}" type="text" name="Shipment[order_id]" />
+                                                <label>{{ __('Invoice No') }}:</label>
+                                                <input placeholder="{{ __('Invoice No') }}" type="text" name="Shipment[order_id]" />
                                             </div>
 
                                         </div>
