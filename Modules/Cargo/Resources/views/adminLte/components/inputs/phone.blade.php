@@ -30,7 +30,8 @@
             var iti = window.intlTelInput(input, {
                 separateDialCode: true,
                 utilsScript: window.static_asset_utils_file,
-                initialCountry: "ng",
+                initialCountry: "in",
+                onlyCountries: ["in"],
                 preferredCountries: ["eg","ng","ke"],
                 autoPlaceholder: "aggressive"
             });

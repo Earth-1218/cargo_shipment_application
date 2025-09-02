@@ -1,7 +1,8 @@
 <x-base-layout>
 
     <x-slot name="pageTitle">
-        {{ __('cargo::view.covered_states') }}
+        {{-- {{ __('cargo::view.covered_states') }} --}}
+        {{ __('Covered States') }}`
     </x-slot>
 
 
